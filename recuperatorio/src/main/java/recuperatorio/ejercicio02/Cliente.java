@@ -30,8 +30,9 @@ public class Cliente {
 	public void agregarProducto(Integer nroPedido, Integer idProducto,Integer cantidad) {
 
 		Producto p = Database.buscarProducto(idProducto);
-		// verificar si el stock existente alcanza para agregarlo al pedido				
-
+		// verificar si el stock existente alcanza para agregarlo al pedido	
+		if (p.getStock() >= cantidad) {
+				
 		// verificar si el cliente cumple la condicion pedida para agregar el producto
 		Pedido pedido = this.buscarPorNro(nroPedido);
 		pedido.addDetalle(p, cantidad);
