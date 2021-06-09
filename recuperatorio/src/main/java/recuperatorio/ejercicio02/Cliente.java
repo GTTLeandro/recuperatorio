@@ -46,7 +46,7 @@ public class Cliente {
 		{Producto p = Database.buscarProducto(idProducto);
 				
 		// verificar si el stock existente alcanza para agregarlo al pedido	
-		if (p.getStock() >= cantidad) {throw new StockInsuficienteException();}
+		if (p.getStock() <= cantidad) {throw new StockInsuficienteException();}
 				
 		// verificar si el cliente cumple la condicion pedida para agregar el producto
 		if (this.montoDisponible(p) < p.getPrecio()) {throw new PresupuestoProductosInsuficienteException();}
